@@ -11,14 +11,16 @@ dat <-
 
 # Functions ---------------------------------------------------------------
 
-# this is to create a mat that accommodates all the movement that
-# you have to go through to get to the bottom right
-
 trees_get <- function(mat, n_right, n_down){
+  
+  # this is to create a mat that accommodates all the movement that
+  # you have to go through to get to the bottom right
   
   repeats <- ceiling(n_right * nrow(mat) / ncol(mat))
   
   new_mat <- do.call(cbind, replicate(repeats, mat, simplify = F))
+  
+  # this counts the number of # based on the positions designated by the slope
 
   encounters <- c()
   
@@ -36,14 +38,14 @@ trees_get <- function(mat, n_right, n_down){
 
 prod_trees <- function(mat, slopes){
   
-  n_trees <- c()
+  encounters <- c()
   
   for(i in 1:nrow(slopes)){
     
-    n_trees[i] <- trees_get(mat, slopes[i, 1], slopes[i, 2])
+    encounters[i] <- trees_get(mat, slopes[i, 1], slopes[i, 2])
   }
   
-  print(prod(n_trees))
+  print(prod(encounters))
   
 }
 
