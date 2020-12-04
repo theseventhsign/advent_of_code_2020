@@ -36,6 +36,19 @@ get_encounters <- function(matrix, num_right, num_down){
   
 }
 
+get_encounters_again <- function(matrix, slopes){
+  
+  n_trees <- c()
+  
+  for(i in 1:nrow(slopes)){
+    
+    n_trees[i] <- get_encounters(matrix, slopes[i, 1], slopes[i, 2])
+  }
+  
+  print(prod(n_trees))
+  
+}
+
 # Calculations ------------------------------------------------------------
 
 # Part 01
@@ -52,16 +65,3 @@ entries <-
            1, 2),
          nrow = 5,
          byrow = T)
-
-get_encounters_again <- function(matrix, slopes){
-
-  n_trees <- c()
-  
-  for(i in 1:nrow(slopes)){
-    
-    n_trees[i] <- get_encounters(matrix, slopes[i, 1], slopes[i, 2])
-  }
-  
-  print(prod(n_trees))
-
-}
