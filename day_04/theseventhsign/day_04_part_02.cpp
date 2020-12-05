@@ -244,6 +244,7 @@ main(int ArgCount, char **Args)
 				{
 					// 3c format specifier does not null terminate
 					Key[3] = '\0';
+					
 					AddField(Passport, Key, Value);
 					char Char = fgetc(File);
 					if(Char == ' ')
