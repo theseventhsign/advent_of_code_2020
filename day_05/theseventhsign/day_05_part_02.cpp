@@ -92,23 +92,23 @@ main(int ArgCount, char **Args)
 
 			Assert(SeatIDCount < ArrayCount(SeatIDs));
 			SeatIDs[SeatIDCount++] = SeatID;
+		}
 
-			// Bubble sort
-			for(int Outer = 0;
-				Outer < SeatIDCount;
-				++Outer)
+		// Bubble sort
+		for(int Outer = 0;
+			Outer < SeatIDCount;
+			++Outer)
+		{
+			for(int Inner = 0;
+				Inner < SeatIDCount - 1;
+				++Inner)
 			{
-				for(int Inner = 0;
-					Inner < SeatIDCount - 1;
-					++Inner)
+				int EntryA = SeatIDs[Inner];
+				int EntryB = SeatIDs[Inner + 1];
+				if(EntryA > EntryB)
 				{
-					int EntryA = SeatIDs[Inner];
-					int EntryB = SeatIDs[Inner + 1];
-					if(EntryA > EntryB)
-					{
-						SeatIDs[Inner] = EntryB;
-						SeatIDs[Inner + 1] = EntryA;
-					}
+					SeatIDs[Inner] = EntryB;
+					SeatIDs[Inner + 1] = EntryA;
 				}
 			}
 		}
