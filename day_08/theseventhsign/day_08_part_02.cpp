@@ -136,6 +136,7 @@ main(int ArgCount, char **Args)
 		b32 ResultSet = false;
 		int Result = 0;
 
+		// I didn't even have to try to toggle NOPs!
 		for(int JumpIndex = 0;
 			JumpIndex < ProgramState->JumpCount;
 			++JumpIndex)
@@ -160,7 +161,7 @@ main(int ArgCount, char **Args)
 		}
 		else
 		{
-			fprintf(stdout, "Program never completed!\n");
+			fprintf(stderr, "Program never completed!\n");
 		}
 
 		fclose(File);
